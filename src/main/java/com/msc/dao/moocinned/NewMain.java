@@ -4,6 +4,7 @@ package com.msc.dao.moocinned;
 
 import com.msc.dao.daoproject.generic.DAO;
 import com.msc.dao.moocinned.controller.DepartementController;
+import com.msc.dao.moocinned.controller.DomaineController;
 import com.msc.dao.moocinned.controller.UserController;
 import com.msc.dao.moocinned.helper.CORSResponseFilter;
 import java.io.File;
@@ -45,6 +46,7 @@ public class NewMain {
        // clazzs.add(MultiPartFeature.class); //a garder !!! permet de faire de l'upload
         clazzs.add(UserController.class);
         clazzs.add(DepartementController.class);
+        clazzs.add(DomaineController.class);
         
         ResourceConfig userResources = new ResourceConfig(clazzs);
         userResources.register(DeclarativeLinkingFeature.class);
