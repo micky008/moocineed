@@ -2,12 +2,14 @@ package com.msc.dao.moocinned.entity;
 
 import com.msc.dao.daoproject.annotation.Id;
 import com.msc.dao.daoproject.annotation.Name;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author micky
  */
 @Name(name = "departement")
+@XmlRootElement(name = "departement")
 public class Departement {
 
     @Id

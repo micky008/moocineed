@@ -3,7 +3,9 @@ package com.msc.dao.moocinned;
 
 
 import com.msc.dao.daoproject.generic.DAO;
+import com.msc.dao.moocinned.controller.DepartementController;
 import com.msc.dao.moocinned.controller.UserController;
+import com.msc.dao.moocinned.helper.CORSResponseFilter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -42,9 +44,11 @@ public class NewMain {
         Set<Class<?>> clazzs = new HashSet();
        // clazzs.add(MultiPartFeature.class); //a garder !!! permet de faire de l'upload
         clazzs.add(UserController.class);
+        clazzs.add(DepartementController.class);
         
         ResourceConfig userResources = new ResourceConfig(clazzs);
         userResources.register(DeclarativeLinkingFeature.class);
+        userResources.register(CORSResponseFilter.class);
 
         JdkHttpServerFactory.createHttpServer(baseUri, userResources, true);
     }
