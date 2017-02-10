@@ -35,4 +35,12 @@ public class DepartementController {
         return ddao.getAll();
     }
 
+    @GET
+    @Path("/id/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Departement getDepartementById(  @PathParam("id") Integer id) throws SQLException {
+        DepartementDAO ddao = new DepartementDAO();
+        return ddao.getObjectById(id);
+    }
+    
 }

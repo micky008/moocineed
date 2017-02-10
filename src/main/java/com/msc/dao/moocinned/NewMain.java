@@ -7,6 +7,7 @@ import com.msc.dao.moocinned.controller.DepartementController;
 import com.msc.dao.moocinned.controller.DomaineController;
 import com.msc.dao.moocinned.controller.UserController;
 import com.msc.dao.moocinned.helper.CORSResponseFilter;
+import com.msc.dao.moocinned.helper.ConfigHelper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -30,7 +31,8 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        FileReader fr = new FileReader(new File("config.properties"));
+        //FileReader fr = new FileReader(new File("config.properties"));
+        FileReader fr = new FileReader(args[0]);
         Properties prop = new Properties();
         prop.load(fr);
         fr.close();
@@ -40,6 +42,8 @@ public class NewMain {
         if (!domain.endsWith("/")) {
             domain = domain + "/";
         }
+        ConfigHelper.setProperties(prop);
+        ConfigHelper.prepare();
         int port = Integer.parseInt(prop.getProperty("ws.port"));
         URI baseUri = UriBuilder.fromUri(domain).port(port).build(new Object[0]);
         Set<Class<?>> clazzs = new HashSet();

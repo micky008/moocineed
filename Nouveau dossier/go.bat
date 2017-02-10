@@ -1,0 +1,1 @@
+java -classpath "./lib/*" com.msc.dao.moocinned.NewMain ./conf/config.properties
